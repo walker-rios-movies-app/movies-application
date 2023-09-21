@@ -1,13 +1,83 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+<!DOCTYPE html>
 
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies Application</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+<div class="page-wrapper">
+    <header class="container">
+        <div class="row">
+            <div class="column flex-shrink">
+                <div class="logo">
+                    <span>Codeup</span> Movies App
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="container cat-tags">
+        <div class="row">
+            <div class="column">
+                <ul class="cat-tab-menu">
+                    <li class="active">
+                        <div>All</div>
+                        <span>32</span>
+                    </li>
+                    <li>
+                        <div>Fiction</div>
+                        <span>8</span>
+                    </li>
+                    <li>
+                        <div>Novels</div>
+                        <span>12</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex-shrink justify-content-center">
+                <button id="add-movie-btn" class="btn btn-cta">Add Movie</button>
+                <!--                modal-->
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <!--                        Form-->
+                        <form class="pure-form" method="post">
+                            <!--                            <div class="imgcontainer">-->
+                            <!--                                <img src="img_avatar2.png" alt="Avatar" class="avatar">-->
+                            <!--                            </div>-->
+                            <label><b>What Movie?</b></label>
+                            <input id="title" type="text" placeholder="Enter Movie" required>
+
+                            <label><b>What year did this come out?</b></label>
+                            <input id="year" type="text" placeholder="Year" required>
+
+                            <label><b>Give a brief Summary...</b></label>
+                            <input id="summary" type="text" placeholder="summary">
+
+                            <label><b>What do you rate this?</b></label>
+                            <input id="rating" type="text" placeholder="rating out of 10" required>
+
+                            <label><b>What Genre is the movie?</b></label>
+                            <input id="genre" type="text" placeholder="Add Genre" required>
+
+                            <button type="submit">Add Movie</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container">
+        <div class="row">
+            <div class="movies-grid">
+                <!--                    this is where we're going to put the cards from javascript-->
+            </div>
+        </div>
+    </section>
+</div>
+<!-- MAIN -->
+<script type="module" src="../js/index.js"></script>
+<script src="../js/modal.js"></script>
 </body>
-</html>

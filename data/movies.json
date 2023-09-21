@@ -3,8 +3,42 @@
     {
       "id": 1,
       "title": "Shrek",
-      "rating": 5,
-      "movieSummary": ""
+      "rating": 10,
+      "year": 2000,
+      "movieSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+      "genre": ["family", "comedy"]
+    },
+    {
+      "id": 2,
+      "title": "Shrek 2",
+      "year": 2000,
+      "rating": 10,
+      "movieSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+      "genre": ["family", "comedy"]
+    },
+    {
+      "id": 4,
+      "title": "Shrek 4",
+      "year": 2000,
+      "rating": 1,
+      "movieSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+      "genre": ["family", "comedy"]
+    },
+    {
+      "id": 3,
+      "title": "Shrek 3",
+      "year": 2000,
+      "rating": 2,
+      "movieSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+      "genre": ["family", "comedy"]
+    },
+    {
+      "title": "Shrek 5",
+      "rating": 2,
+      "year": 2000,
+      "movieSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+      "id": 5,
+      "genre": ["family", "comedy"]
     }
   ]
 }
