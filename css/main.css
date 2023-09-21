@@ -1,0 +1,241 @@
+@import "resets.css";
+@import "layout.css";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+    --primary-color: #769e48;
+    --grey: #e8e9eb;
+    --bg-color: #f8f8f8;
+    --dark-grey: #595F69
+}
+body {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    height: 100%;
+    background-color: var(--bg-color);
+}
+
+header.container {
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.logo span {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.container.cat-tags .column {
+    border-bottom: 1px solid #e8e9eb;
+}
+
+ul.cat-tab-menu {
+    display: flex;
+    align-items: stretch;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul.cat-tab-menu li {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 2px solid transparent;
+    gap: 8px;
+    cursor: pointer;
+    transition: all ease 0.3s;
+    color: #8a9099;
+}
+
+ul.cat-tab-menu li.active {
+    border-bottom-color: var(--primary-color);
+    color: #000;
+}
+
+ul.cat-tab-menu li span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: var(--grey);
+    border-radius: 3px;
+}
+
+.movies-grid {
+    display: flex;
+    width: 100%;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin: 20px 0;
+}
+
+.movies-card {
+    min-height: 272px;
+    border-radius: 20px;
+    background-color: #fff;
+    width: calc(33.333% - 20px);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+.movies-card-title{
+    font-size: 18px;
+    font-weight: 500;
+}
+.movies-card-year{
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: var(--dark-grey);
+}
+.movies-card-description{
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: var(--dark-grey);
+    max-height: 65px;
+    overflow: hidden;
+    flex: 1 0 65px;
+}
+
+
+.movies-card-span .movies-card-rating{
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: var(--dark-grey);
+}
+.movies-card-meter{
+    width: 100%;
+
+}
+.movies-card-tag{
+    align-items: center;
+    justify-content: center;
+    padding: 5px 20px;
+    border-radius: 8px;
+    background-color: var(--bg-color);
+}
+/*-------- Modal---------*/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+/* Bordered form */
+form {
+    border: 3px solid #f1f1f1;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+/* Add padding to containers */
+.container {
+    padding: 16px;
+}
+
+/* The "Forgot password" text */
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+}
