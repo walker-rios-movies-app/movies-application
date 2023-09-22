@@ -1,3 +1,4 @@
+import {postMovie, renderMovie} from "./api/movies.js";
 
 const modal = document.getElementById("myModal");
 
@@ -26,26 +27,31 @@ window.onclick = function(event) {
     }
 }
 
-submit.onclick = function(event) {
+submit.onclick = async function(event) {
     const title = document.getElementById('title').value;
     const year = document.getElementById('year').value;
-    const summary = document.getElementById('summary').value;
+    const movieSummary = document.getElementById('movieSummary').value;
     const rating = document.getElementById('rating').value;
     const genre = document.getElementById('genre').value;
 
     const movieObject = {
         title: title,
         year: year,
-        summary:summary,
+        movieSummary:movieSummary,
         rating:rating,
-        genre:genre
+        genre: genre.split(", ")
     }
     console.log(movieObject)
+    try{
+        const newMovie = await postMovie(movieObject)
+        renderMovie(movieObject, document.querySelector(".movies-grid"));
+    } catch (error){
+        console.log(error)
+    }
 
 }
 
 let nameInput = document.getElementById('myModal');
 document.querySelector('form.pure-form').addEventListener('submit', function(e){
     e.preventDefault();
-    console.log(nameInput.value)
 })

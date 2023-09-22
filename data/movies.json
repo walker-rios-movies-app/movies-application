@@ -6,7 +6,10 @@
       "rating": 10,
       "year": 2000,
       "movieSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
-      "genre": ["family", "comedy"]
+      "genre": [
+        "family",
+        "comedy"
+      ]
     },
     {
       "id": 2,
@@ -14,7 +17,10 @@
       "year": 2000,
       "rating": 10,
       "movieSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
-      "genre": ["family", "comedy"]
+      "genre": [
+        "family",
+        "comedy"
+      ]
     },
     {
       "id": 4,
@@ -22,7 +28,10 @@
       "year": 2000,
       "rating": 1,
       "movieSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
-      "genre": ["family", "comedy"]
+      "genre": [
+        "family",
+        "comedy"
+      ]
     },
     {
       "id": 3,
@@ -30,7 +39,10 @@
       "year": 2000,
       "rating": 2,
       "movieSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
-      "genre": ["family", "comedy"]
+      "genre": [
+        "family",
+        "comedy"
+      ]
     },
     {
       "title": "Shrek 5",
@@ -38,7 +50,20 @@
       "year": 2000,
       "movieSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
       "id": 5,
-      "genre": ["family", "comedy"]
+      "genre": [
+        "family",
+        "comedy"
+      ]
+    },
+    {
+      "title": "Friday Night Lights",
+      "year": "2007",
+      "movieSummary": "Football movie",
+      "rating": "10",
+      "genre": [
+        "sports"
+      ],
+      "id": 6
     }
   ]
 }
