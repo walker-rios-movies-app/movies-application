@@ -56,14 +56,26 @@
       ]
     },
     {
-      "title": "Friday Night Lights",
-      "year": "2007",
-      "movieSummary": "Football movie",
+      "title": "Nacho Libre",
+      "year": "2005",
+      "movieSummary": "A man working at an orphanage in rural Mexico sets out on a journey to become a wrestler",
       "rating": "10",
       "genre": [
-        "sports"
+        "comedy"
       ],
       "id": 6
+    },
+    {
+      "title": "Frozen",
+      "year": "2013",
+      "movieSummary": "",
+      "rating": "7",
+      "genre": [
+        "Kids",
+        "disney",
+        "coming of age"
+      ],
+      "id": 7
     }
   ]
 }
