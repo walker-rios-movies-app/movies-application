@@ -106,6 +106,7 @@ const searchMovieByTitle = async (title) => {
 const renderMovie=(movie, target)=>{
     const moviesCard = document.createElement('article');
     moviesCard.classList.add('movies-card');
+    moviesCard.setAttribute(`data-id`,`${movie.id}`)
     moviesCard.innerHTML =`
     <div class="movies-card-title">${movie.title}</div>
         <p class="movies-card-year">${movie.year}</p>
@@ -119,7 +120,84 @@ const renderMovie=(movie, target)=>{
                     `).join('')
     }
         </div>
+        
+<!--        Edit Button-->
+        <div>
+            <div>
+               <button type="button" class="edit-btn" id="edit-btn">Edit Movie</button>
+            </div>
+        </div>
+        
+<!--           Delete Button-->
+       <div class="flex-shrink justify-content-center"> 
+            <!-- Trigger/Open The Modal -->
+          <button id="deleteAll" class="deletebtn btn-cta">Delete</button>
+                     <!-- The Modal -->
+<!--             <div class="deleteModal">-->
+<!--                  &lt;!&ndash; Modal content &ndash;&gt;-->
+<!--               <div class="delete-modal-content">-->
+<!--                    <span class="delete-close">&times;</span>-->
+<!--                    <p>test</p>-->
+<!--               </div>-->
+<!--             </div>-->
+       </div>
+       
+        
+        
+<!--              <div class="flex-shrink justify-content-center">-->
+<!--                <button id="del-movie-btn" class="delete-btn btn btn-cta">Delete Movie</button>-->
+<!--                &lt;!&ndash;                modal&ndash;&gt;-->
+<!--                <div id="myModalD" class="modal">-->
+<!--                    <div class="modal-content">-->
+<!--                        <span class="close1">&times;</span>-->
+<!--                        &lt;!&ndash;                        Form&ndash;&gt;-->
+<!--                        <form class="pure-form" method="post">-->
+<!--                -->
+<!--                            <label><b>Delete Movie?</b></label>-->
+<!--                            <input id="title" type="text" placeholder="Enter Movie" required>-->
+
+<!--                            <button id="delete" type="submit">Delete Movie</button>-->
+<!--                        </form>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+
+
+       
     `;
+    console.log(movie.id)
+    console.log(movie)
+
+    // const thing = movie
+    // const deleteBtn = document.querySelector(`.movies-card[data-id="${thing}"]`)
+    // console.log(document.querySelector("#deleteAll"));
+    // console.log(deleteBtn);
+    // deleteBtn.addEventListener("click", () => {
+    //     // alert(`${movie.title} was deleted.`)
+    //     alert('boom')
+    // })
+
+
+
+// document.getElementById("deleteBtn").addEventListener("click", ()=> deleteMovie())
+//     console.log()
+
+    // const deleteBtn = document.querySelector(`.movies-card[data-id="${movie.id}"]`)
+    // console.log(deleteBtn);
+    // deleteBtn.addEventListener("click", () => {
+    //     // alert(`${movie.title} was deleted.`)
+    //     alert('boom')
+    // })
+
+    // deleteBtn.addEventListener("click", async () => {
+    //     alert(`${movie.Title} was deleted.`);
+    //     movieCard.remove()
+    //     console.log("deleteButton")
+    //
+    //     await deleteMovie(movie);
+    // });
+
     target.appendChild(moviesCard)
 }
 
