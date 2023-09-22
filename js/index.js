@@ -2,7 +2,19 @@
 
 import {getMovies, getMovie, deleteMovie, postMovie, searchMovieByTitle, patchMovie, renderMovie} from "./api/movies.js"
 
-
+document.onreadystatechange = function () {
+    if (document.readyState !== "complete") {
+        document.querySelector(
+            "body").style.visibility = "hidden";
+        document.querySelector(
+            "#loader").style.visibility = "visible";
+    } else {
+        document.querySelector(
+            "#loader").style.display = "none";
+        document.querySelector(
+            "body").style.visibility = "visible";
+    }
+};
 
 (async()=>{
 
@@ -14,6 +26,7 @@ import {getMovies, getMovie, deleteMovie, postMovie, searchMovieByTitle, patchMo
 
 
     }
+
 
     // $(".deletebtn").on("click",async function () {
     //     $(this)
@@ -42,5 +55,6 @@ import {getMovies, getMovie, deleteMovie, postMovie, searchMovieByTitle, patchMo
     //     deleteMovie(5);
     //     console.log("clicked")
     // }
+
 
 })();

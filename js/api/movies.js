@@ -68,7 +68,7 @@ const postMovie = async (movie) => {
         return newId;
 
     } catch (error) {
-        console.log(error)
+        return null;
     }
 }
 const patchMovie = async (movies) => {

@@ -43,6 +43,42 @@
         "family",
         "comedy"
       ]
+
+
+    },
+    {
+      "title": "Shrek 5",
+      "rating": 2,
+      "year": 2000,
+      "movieSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+      "id": 5,
+      "genre": [
+        "family",
+        "comedy"
+      ]
+    },
+    {
+      "title": "Nacho Libre",
+      "year": "2005",
+      "movieSummary": "A man working at an orphanage in rural Mexico sets out on a journey to become a wrestler",
+      "rating": "10",
+      "genre": [
+        "comedy"
+      ],
+      "id": 6
+    },
+    {
+      "title": "Frozen",
+      "year": "2013",
+      "movieSummary": "",
+      "rating": "7",
+      "genre": [
+        "Kids",
+        "disney",
+        "coming of age"
+      ],
+      "id": 7
+
     }
   ]
 }

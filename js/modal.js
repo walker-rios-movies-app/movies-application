@@ -1,4 +1,4 @@
-import {postMovie, renderMovie} from "./api/movies.js";
+import {postMovie, renderMovie, searchMovieByTitle} from "./api/movies.js";
 
 const modal = document.getElementById("myModal");
 
@@ -44,7 +44,13 @@ submit.onclick = async function(event) {
     console.log(movieObject)
     try{
         const newMovie = await postMovie(movieObject)
-        renderMovie(movieObject, document.querySelector(".movies-grid"));
+        if(newMovie){
+            renderMovie(movieObject, document.querySelector(".movies-grid"));
+        } else {
+            const messageContainer = document.getElementById('messageContainer');
+            messageContainer.innerText = 'ERROR: This movie already exists in the database';
+
+        }
     } catch (error){
         console.log(error)
     }
