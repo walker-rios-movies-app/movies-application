@@ -23,9 +23,6 @@ const renderMovie=(movie, target)=>{
 }
 
 
-
-
-
 (async()=>{
     const movies = await getMovies();
     console.log(movies);
@@ -33,21 +30,6 @@ const renderMovie=(movie, target)=>{
         const target = document.querySelector(".movies-grid")
         renderMovie(movie,target);
     }
-        return "hello"
-    const title = document.getElementById('title').value;
-    const year = document.getElementById('year').value;
-    const summary = document.getElementById('summary').value;
-    const rating = document.getElementById('rating').value;
-    const genre = document.getElementById('genre').value;
-
-    const movieObject = {
-        title: title,
-        year: year,
-        summary:summary,
-        rating:rating,
-        genre:genre
-    }
-    console.log(movieObject)
 
 
 })();
