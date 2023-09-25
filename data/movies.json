@@ -21,6 +21,30 @@
         "family",
         "comedy"
       ]
+    },
+    {
+      "title": "Shrek 8",
+      "year": "2018",
+      "movieSummary": "hotdogs",
+      "rating": "7",
+      "genre": [
+        "happy",
+        "confused "
+      ],
+      "id": 3,
+      "summary": "undefined"
+    },
+    {
+      "title": "shrek 6",
+      "year": "2002",
+      "movieSummary": "funny",
+      "rating": "9",
+      "genre": [
+        "happy",
+        "sad",
+        "funny"
+      ],
+      "id": 4
     }
   ]
 }
