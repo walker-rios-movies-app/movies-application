@@ -22,6 +22,6 @@ document.onreadystatechange = function () {
     console.log(movies);
     for (let movie of movies) {
         const target = document.querySelector(".movies-grid")
-        renderMovie(movie,target);
+        await renderMovie(movie, target);
     }
 })();

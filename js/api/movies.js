@@ -71,11 +71,13 @@ const postMovie = async (movie) => {
         return null;
     }
 }
-const patchMovie = async (movies) => {
+const patchMovie = async (movie) => {
 
     try {
-        const url = `http://localhost:3000/books/${movies.id}`;
-        const body = movies;
+        const url = `http://localhost:3000/movies/${movie.id}`;
+        console.log(url)
+        console.log(`${movie.id}`);
+        const body = movie;
         const options = {
             "method": "PATCH",
             "headers": {
@@ -103,12 +105,68 @@ const searchMovieByTitle = async (title) => {
     const movies = await response.json();
     return movies;
 }
+
+const renderEditModal = (movie, moviesCard) => {
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+    modal.innerHTML = `
+        <div class="modal-content">
+                <span class="editClose">&times;</span>
+                <!--            form-->
+                <form class="pure-form" method="post">
+                    <label><b>Edit Movie.....</b></label>
+                    <input id="editedTitle" type="text" placeholder="Enter Movie" value="${movie.title}">
+
+                    <label><b>Edit year....</b></label>
+                    <input id="editedYear" type="text" placeholder="Year" value="${movie.year}">
+
+                    <label><b>Edit  Summary...</b></label>
+                    <input id="editedMovieSummary" type="text" placeholder="summary" value="${movie.movieSummary}">
+
+                    <label><b>Edit rating...</b></label>
+                    <input id="editedRating" type="text" placeholder="rating out of 10" value="${movie.rating}">
+
+                    <label><b>Edit genre....</b></label>
+                    <input id="editedGenre" type="text" placeholder="Add Genre" value="${movie.genre.join(', ')}">
+
+                    <button id="submit-edit" type="submit">Add Movie</button>
+                    <div id="editMessageContainer"></div>
+                </form>
+            </div>
+        </div>
+    `;
+    modal.style.display = "block";
+    const closeBtn = modal.querySelector('.editClose');
+    closeBtn.addEventListener('click', ()=>{
+      modal.remove();
+    });
+    const submitBtn = modal.querySelector('#submit-edit');
+    submitBtn.addEventListener('click', async ()=>{
+        const newMovieObj = {
+            id: movie.id,
+            title: modal.querySelector('#editedTitle').value,
+            year: modal.querySelector('#editedYear').value,
+            summary: modal.querySelector('#editedMovieSummary').value,
+            rating: modal.querySelector('#editedRating').value,
+            genre: modal.querySelector('#editedGenre').value.split(", "),
+        }
+        try {
+            await patchMovie(newMovieObj);
+            moviesCard.remove();
+            await renderMovie(newMovieObj);
+            modal.remove();
+        } catch (e) {
+            console.log(e);
+        }
+    });
+    document.body.appendChild(modal);
+}
 const renderMovie= async (movie, target)=>{
     const moviesCard = document.createElement('article');
     moviesCard.classList.add('movies-card');
     moviesCard.setAttribute(`data-id`,`${movie.id}`)
     moviesCard.innerHTML =`
-    <div class="movies-card-title">${movie.title}</div>
+    <div id="title" class="movies-card-title">${movie.title}</div>
         <p class="movies-card-year">${movie.year}</p>
         <p class="movies-card-description">${movie.movieSummary}</p>
         <div class="d-flex align-items-center justify-content-between"><span class="movies-card-span">${movie.rating}/10</span></div>
@@ -120,16 +178,19 @@ const renderMovie= async (movie, target)=>{
                     `).join('')
     }
         </div>
+        
+        <input type ="hidden" value=" ${movie.id}">   
 <!--        Edit Button-->
             <!--modal-->
-       <button class="card-btn btn-cta" data-action="edit" id="editButton">Edit</button>
+       <button class="card-btn btn-cta" data-action="edit">Edit</button>
+       
 <!--           Delete Button-->
-       <button class="card-btn" data-action="delete" id="delete-button">Delete</button>
+       <button class="card-btn" data-action="delete">Delete</button>
     `;
     console.log(movie.id)
     console.log(movie)
 
-    const deleteBtn = moviesCard.querySelector("#delete-button[data-action='delete']");
+    const deleteBtn = moviesCard.querySelector("[data-action='delete']");
 
     deleteBtn.addEventListener("click", async () => {
         alert(`${movie.title} was deleted.`);
@@ -138,58 +199,16 @@ const renderMovie= async (movie, target)=>{
 
         await deleteMovie(movie.id);
     });
+
     const editModal= document.getElementById("myEditModal");
     const editSpan = document.getElementsByClassName("editClose")[0];
-    const submit = document.getElementById("submit-edit");
 
 
-    const editBtn= moviesCard.querySelector("#editButton[data-action='edit']")
+    const editBtn= moviesCard.querySelector("[data-action='edit']")
 
-        editBtn.addEventListener('click', ()=>{
-        editModal.style.display = "block"
-    })
-
-    editSpan.onclick = function(){
-        editModal.style.display = "none";
-    }
-
-    window.onclick = function(event){
-        if(event.target === editModal){
-            editModal.style.display = "none";
-        }
-    }
-
-    submit.onclick = async function (event){
-        const title = document.getElementById('editedTitle').value;
-        const year = document.getElementById('editedYear').value;
-        const movieSummary = document.getElementById('editedMovieSummary').value;
-        const rating = document.getElementById('editedRating').value;
-        const genre = document.getElementById('editedGenre').value;
-
-        const movieObject = {
-            title: title,
-            year: year,
-            movieSummary:movieSummary,
-            rating:rating,
-            genre: genre.split(", ")
-        }
-        console.log(movieObject);
-        try{
-            const editedMovie = await patchMovie(movieObject)
-            if(editedMovie){
-                await renderMovie(movieObject, document.querySelector(".movies-grid"));
-            } else{
-                const editMessageContainer = document.getElementById("editMessageContainer");
-                editMessageContainer.innerText = 'SUCCESS: Movie was edited successfully';
-            }
-        } catch (error){
-            console.log(error)
-        }
-    }
-    let editInput = document.getElementById("myEditModal");
-    document.querySelector('form.pure-form').addEventListener('submit', function(e){
-        e.preventDefault();
-    })
+    editBtn.addEventListener('click', ()=>{
+        renderEditModal(movie, moviesCard);
+    });
     target.appendChild(moviesCard)
 }
 
