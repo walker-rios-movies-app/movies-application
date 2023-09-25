@@ -103,7 +103,7 @@ const searchMovieByTitle = async (title) => {
     const movies = await response.json();
     return movies;
 }
-const renderMovie=(movie, target)=>{
+const renderMovie= async (movie, target)=>{
     const moviesCard = document.createElement('article');
     moviesCard.classList.add('movies-card');
     moviesCard.setAttribute(`data-id`,`${movie.id}`)
@@ -120,84 +120,76 @@ const renderMovie=(movie, target)=>{
                     `).join('')
     }
         </div>
-        
 <!--        Edit Button-->
-        <div>
-            <div>
-               <button type="button" class="edit-btn" id="edit-btn">Edit Movie</button>
-            </div>
-        </div>
-        
+            <!--modal-->
+       <button class="card-btn btn-cta" data-action="edit" id="editButton">Edit</button>
 <!--           Delete Button-->
-       <div class="flex-shrink justify-content-center"> 
-            <!-- Trigger/Open The Modal -->
-          <button id="deleteAll" class="deletebtn btn-cta">Delete</button>
-                     <!-- The Modal -->
-<!--             <div class="deleteModal">-->
-<!--                  &lt;!&ndash; Modal content &ndash;&gt;-->
-<!--               <div class="delete-modal-content">-->
-<!--                    <span class="delete-close">&times;</span>-->
-<!--                    <p>test</p>-->
-<!--               </div>-->
-<!--             </div>-->
-       </div>
-       
-        
-        
-<!--              <div class="flex-shrink justify-content-center">-->
-<!--                <button id="del-movie-btn" class="delete-btn btn btn-cta">Delete Movie</button>-->
-<!--                &lt;!&ndash;                modal&ndash;&gt;-->
-<!--                <div id="myModalD" class="modal">-->
-<!--                    <div class="modal-content">-->
-<!--                        <span class="close1">&times;</span>-->
-<!--                        &lt;!&ndash;                        Form&ndash;&gt;-->
-<!--                        <form class="pure-form" method="post">-->
-<!--                -->
-<!--                            <label><b>Delete Movie?</b></label>-->
-<!--                            <input id="title" type="text" placeholder="Enter Movie" required>-->
-
-<!--                            <button id="delete" type="submit">Delete Movie</button>-->
-<!--                        </form>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-
-
-
-       
+       <button class="card-btn" data-action="delete" id="delete-button">Delete</button>
     `;
     console.log(movie.id)
     console.log(movie)
 
-    // const thing = movie
-    // const deleteBtn = document.querySelector(`.movies-card[data-id="${thing}"]`)
-    // console.log(document.querySelector("#deleteAll"));
-    // console.log(deleteBtn);
-    // deleteBtn.addEventListener("click", () => {
-    //     // alert(`${movie.title} was deleted.`)
-    //     alert('boom')
-    // })
+    const deleteBtn = moviesCard.querySelector("#delete-button[data-action='delete']");
+
+    deleteBtn.addEventListener("click", async () => {
+        alert(`${movie.title} was deleted.`);
+        moviesCard.remove()
+        console.log("deleteButton")
+
+        await deleteMovie(movie.id);
+    });
+    const editModal= document.getElementById("myEditModal");
+    const editSpan = document.getElementsByClassName("editClose")[0];
+    const submit = document.getElementById("submit-edit");
 
 
+    const editBtn= moviesCard.querySelector("#editButton[data-action='edit']")
 
-// document.getElementById("deleteBtn").addEventListener("click", ()=> deleteMovie())
-//     console.log()
+        editBtn.addEventListener('click', ()=>{
+        editModal.style.display = "block"
+    })
 
-    // const deleteBtn = document.querySelector(`.movies-card[data-id="${movie.id}"]`)
-    // console.log(deleteBtn);
-    // deleteBtn.addEventListener("click", () => {
-    //     // alert(`${movie.title} was deleted.`)
-    //     alert('boom')
-    // })
+    editSpan.onclick = function(){
+        editModal.style.display = "none";
+    }
 
-    // deleteBtn.addEventListener("click", async () => {
-    //     alert(`${movie.Title} was deleted.`);
-    //     movieCard.remove()
-    //     console.log("deleteButton")
-    //
-    //     await deleteMovie(movie);
-    // });
+    window.onclick = function(event){
+        if(event.target === editModal){
+            editModal.style.display = "none";
+        }
+    }
 
+    submit.onclick = async function (event){
+        const title = document.getElementById('editedTitle').value;
+        const year = document.getElementById('editedYear').value;
+        const movieSummary = document.getElementById('editedMovieSummary').value;
+        const rating = document.getElementById('editedRating').value;
+        const genre = document.getElementById('editedGenre').value;
+
+        const movieObject = {
+            title: title,
+            year: year,
+            movieSummary:movieSummary,
+            rating:rating,
+            genre: genre.split(", ")
+        }
+        console.log(movieObject);
+        try{
+            const editedMovie = await patchMovie(movieObject)
+            if(editedMovie){
+                await renderMovie(movieObject, document.querySelector(".movies-grid"));
+            } else{
+                const editMessageContainer = document.getElementById("editMessageContainer");
+                editMessageContainer.innerText = 'SUCCESS: Movie was edited successfully';
+            }
+        } catch (error){
+            console.log(error)
+        }
+    }
+    let editInput = document.getElementById("myEditModal");
+    document.querySelector('form.pure-form').addEventListener('submit', function(e){
+        e.preventDefault();
+    })
     target.appendChild(moviesCard)
 }
 
