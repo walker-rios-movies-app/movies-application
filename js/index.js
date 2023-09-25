@@ -1,6 +1,6 @@
 // import keys from "./keys.js";
 
-import {getMovies, getMovie, deleteMovie, postMovie, searchMovieByTitle, patchMovie, renderMovie} from "./api/movies.js"
+import {getMovies, getMovie, deleteMovie, postMovie, searchMovieByTitle, patchMovie, renderMovie, renderEditModal} from "./api/movies.js"
 
 document.onreadystatechange = function () {
     if (document.readyState !== "complete") {
@@ -24,4 +24,5 @@ document.onreadystatechange = function () {
         const target = document.querySelector(".movies-grid")
         await renderMovie(movie, target);
     }
+    
 })();

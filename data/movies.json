@@ -1,50 +1,73 @@
 {
   "movies": [
     {
-      "id": 1,
-      "title": "Shrek",
-      "rating": 10,
-      "year": 2000,
-      "movieSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+      "title": "Friday Night Lights",
+      "year": "2004",
+      "movieSummary": "Based on H.G. Bissinger's book, which profiled the economically depressed town of Odessa, Texas and their heroic high school football team, The Permian High Panthers.",
+      "rating": "10",
       "genre": [
-        "family",
-        "comedy"
-      ]
-    },
-    {
-      "id": 2,
-      "title": "Shrek 2",
-      "year": 2000,
-      "rating": 10,
-      "movieSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
-      "genre": [
-        "family",
-        "comedy"
-      ]
-    },
-    {
-      "title": "Shrek 8",
-      "year": "2018",
-      "movieSummary": "hotdogs",
-      "rating": "7",
-      "genre": [
-        "happy",
-        "confused "
+        "Drama",
+        "Sports"
       ],
-      "id": 3,
-      "summary": "undefined"
+      "id": 2,
+      "summary": "Based on H.G. Bissinger's book, which profiled the economically depressed town of Odessa, Texas and their heroic high school football team, The Permian High Panthers."
     },
     {
-      "title": "shrek 6",
-      "year": "2002",
-      "movieSummary": "funny",
+      "title": "Avatar",
+      "year": "2009",
+      "movieSummary": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
       "rating": "9",
       "genre": [
-        "happy",
-        "sad",
-        "funny"
+        "Sci-Fi",
+        "Action"
       ],
-      "id": 4
+      "id": 4,
+      "summary": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home."
+    },
+    {
+      "title": "Forrest Gump",
+      "year": "1994",
+      "movieSummary": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+      "rating": "8",
+      "genre": [
+        "Drama",
+        "Romance"
+      ],
+      "id": 5
+    },
+    {
+      "title": "Thor: Love and Thunder",
+      "year": "2022",
+      "movieSummary": "Thor enlists the help of Valkyrie, Korg and ex-girlfriend Jane Foster to fight Gorr the God Butcher, who intends to make the gods extinct.",
+      "rating": "3",
+      "genre": [
+        "Action",
+        "Comedy"
+      ],
+      "id": 6,
+      "summary": "Thor enlists the help of Valkyrie, Korg and ex-girlfriend Jane Foster to fight Gorr the God Butcher, who intends to make the gods extinct."
+    },
+    {
+      "title": "Coco",
+      "year": "2017",
+      "movieSummary": "Aspiring musician Miguel, confronted with his family's ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather, a legendary singer.",
+      "rating": "10",
+      "genre": [
+        "Animation",
+        "Adventure"
+      ],
+      "id": 7,
+      "summary": "Aspiring musician Miguel, confronted with his family's ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather, a legendary singer."
+    },
+    {
+      "title": "Scary Movie 4",
+      "year": "2006",
+      "movieSummary": "Aspiring musician Miguel, confronted with his family's ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather, a legendary singer.",
+      "rating": "2",
+      "genre": [
+        "Comedy"
+      ],
+      "id": 8
     }
   ]
 }
