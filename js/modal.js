@@ -46,6 +46,8 @@ submit.onclick = async function(event) {
         const newMovie = await postMovie(movieObject)
         if(newMovie){
             renderMovie(movieObject, document.querySelector(".movies-grid"));
+            const successMessageContainer = document.getElementById('successMessageContainer');
+            successMessageContainer.innerText = 'SUCCESS: Your Movie was added!';
         } else {
             const messageContainer = document.getElementById('messageContainer');
             messageContainer.innerText = 'ERROR: This movie already exists in the database';
@@ -54,7 +56,6 @@ submit.onclick = async function(event) {
     } catch (error){
         console.log(error)
     }
-
 }
 
 let nameInput = document.getElementById('myModal');

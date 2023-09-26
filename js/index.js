@@ -1,5 +1,3 @@
-// import keys from "./keys.js";
-
 import {getMovies, getMovie, deleteMovie, postMovie, searchMovieByTitle, patchMovie, renderMovie, renderEditModal} from "./api/movies.js"
 
 document.onreadystatechange = function () {

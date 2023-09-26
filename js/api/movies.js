@@ -105,8 +105,9 @@ const searchMovieByTitle = async (title) => {
     const movies = await response.json();
     return movies;
 }
-
+//function that renders the edited modal
 const renderEditModal = (movie, moviesCard) => {
+    // creates a new div that displays the pre-existing data in that card in the modal
     const modal = document.createElement('div');
     modal.classList.add('modal');
     modal.innerHTML = `
@@ -133,13 +134,14 @@ const renderEditModal = (movie, moviesCard) => {
                     <div id="editMessageContainer"></div>
                 </form>
             </div>
-        </div>
     `;
     modal.style.display = "block";
     const closeBtn = modal.querySelector('.editClose');
+    //when the close button is clicked, this closes the modal
     closeBtn.addEventListener('click', ()=>{
       modal.remove();
     });
+    //when the form in the modal is clicked, it simultaneously gets rid of e old card, and replaces it with the new card with the edited information that the user input
     const submitBtn = modal.querySelector('#submit-edit');
     submitBtn.addEventListener('click', async ()=>{
         const newMovieObj = {
@@ -161,6 +163,9 @@ const renderEditModal = (movie, moviesCard) => {
     });
     document.body.appendChild(modal);
 }
+
+//renders the movies card
+// uncommenting this out will allow you to see the loading spinner
 const renderMovie= async (movie, target)=>{
     const moviesCard = document.createElement('article');
     moviesCard.classList.add('movies-card');
@@ -188,6 +193,7 @@ const renderMovie= async (movie, target)=>{
             }
             </div>
         </div>
+<!--        hidden input that alllows the code to add/delete/edit using the id without it being shown to the user -->
         <input type ="hidden" value=" ${movie.id}">   
         <div class="d-flex justify-content-between">
             <!--Edit Button-->
@@ -209,26 +215,23 @@ const renderMovie= async (movie, target)=>{
             </div>
         </div>
     `;
-
+    //assigning the delete button to a variable 
     const deleteBtn = moviesCard.querySelector("[data-action='delete']");
-
+    //delete button event listener that removes the card when the button is clicked
     deleteBtn.addEventListener("click", async () => {
-        alert(`${movie.title} was deleted.`);
         moviesCard.remove()
         console.log("deleteButton")
 
         await deleteMovie(movie.id);
     });
 
-    const editModal= document.getElementById("myEditModal");
-    const editSpan = document.getElementsByClassName("editClose")[0];
-
-
+    //assigning the edit button to a variable
     const editBtn= moviesCard.querySelector("[data-action='edit']")
-
+    //edit button event listener that opens a modal that allows the user to edit the movieCard that was clicked
     editBtn.addEventListener('click', ()=>{
         renderEditModal(movie, moviesCard);
     });
+
     target.appendChild(moviesCard)
 }
 

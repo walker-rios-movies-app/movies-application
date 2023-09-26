@@ -144,7 +144,18 @@ header.container {
     cursor: pointer;
 }
 
-
+/*gives a red error message if the user inputs a movie that laready exists*/
+#messageContainer{
+    color:red;
+    font-weight: bold;
+    font-size: 25px;
+}
+/*gives a green success message if the user's movie is added successfully*/
+#successMessageContainer {
+    color:green;
+    font-weight: bold;
+    font-size: 25px;
+}
 /* Bordered form */
 form {
     border: 3px solid #f1f1f1;
@@ -183,23 +194,35 @@ button:hover {
     width: 20px;
     fill: white;
 }
-/* Avatar image */
-img.avatar {
-    width: 40%;
-    border-radius: 50%;
-}
 
 /* Add padding to containers */
 .container {
     padding: 16px;
 }
 
-/* The "Forgot password" text */
-span.psw {
-    float: right;
-    padding-top: 16px;
-}
 
+
+
+#loader {
+    border: 12px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 12px solid #444444;
+    width: 70px;
+    height: 70px;
+    animation: spin 1s linear infinite;
+}
+.center {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+a {
+     display: flex;
+     justify-content: end;
+ }
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
     span.psw {
@@ -210,37 +233,11 @@ span.psw {
         width: 100%;
     }
 }
-
-/*gives a red error message if the user inputs a movie that laready exists*/
-#messageContainer{
-    color:red;
-    font-weight: bold;
-}
-
-#loader {
-    border: 12px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 12px solid #444444;
-    width: 70px;
-    height: 70px;
-    animation: spin 1s linear infinite;
-}
-
-.center {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-}
-
 @keyframes spin {
     100% {
         transform: rotate(360deg);
     }
 }
-
 .summaryPopup {
     display: none;
     position: fixed;
@@ -318,4 +315,3 @@ p {
     transform: rotateX(0deg);
     transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
