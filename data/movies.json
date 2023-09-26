@@ -25,17 +25,6 @@
       "summary": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home."
     },
     {
-      "title": "Forrest Gump",
-      "year": "1994",
-      "movieSummary": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
-      "rating": "8",
-      "genre": [
-        "Drama",
-        "Romance"
-      ],
-      "id": 5
-    },
-    {
       "title": "Thor: Love and Thunder",
       "year": "2022",
       "movieSummary": "Thor enlists the help of Valkyrie, Korg and ex-girlfriend Jane Foster to fight Gorr the God Butcher, who intends to make the gods extinct.",
@@ -68,6 +57,39 @@
         "Comedy"
       ],
       "id": 8
+    },
+    {
+      "title": "Forrest Gump",
+      "year": "1994",
+      "movieSummary": "The history of the United States from the 1950s to the '70s unfolds from the perspective of an Alabama man with an IQ of 75, who yearns to be reunited with his childhood sweetheart.",
+      "rating": "8",
+      "genre": [
+        "Drama",
+        "Romance"
+      ],
+      "id": 9
+    },
+    {
+      "title": "Barbie",
+      "year": "2023",
+      "movieSummary": "Barbie suffers a crisis that leads her to question her world and her existence.",
+      "rating": "7",
+      "genre": [
+        "Adventure",
+        "Comedy"
+      ],
+      "id": 10
+    },
+    {
+      "title": "Mamma Mia!",
+      "year": "2008",
+      "movieSummary": "The story of a bride-to-be trying to find her real father told using hit songs by the popular 1970s group ABBA.",
+      "rating": "9",
+      "genre": [
+        "Musical",
+        "Romance"
+      ],
+      "id": 12
     }
   ]
 }
